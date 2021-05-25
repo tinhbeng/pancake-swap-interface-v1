@@ -8,17 +8,18 @@ import useGetPriceData from 'hooks/useGetPriceData'
 import useGetLocalProfile from 'hooks/useGetLocalProfile'
 import useAuth from 'hooks/useAuth'
 import links from './config'
-import { CAKE } from '../../constants'
+import { LUA } from '../../constants'
 
 const Menu: React.FC = (props) => {
+  
   const { account } = useWeb3React()
   const { login, logout } = useAuth()
   const { selectedLanguage, setSelectedLanguage } = useContext(LanguageContext)
   const { isDark, toggleTheme } = useTheme()
   const priceData = useGetPriceData()
-  const cakePriceUsd = priceData ? Number(priceData.data[CAKE.address].price) : undefined
+  const cakePriceUsd = priceData ? Number(priceData) : undefined
   const profile = useGetLocalProfile()
-
+  console.log(profile)
   return (
     <UikitMenu
       links={links}

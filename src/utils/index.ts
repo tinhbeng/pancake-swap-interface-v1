@@ -17,13 +17,13 @@ export function isAddress(value: any): string | false {
   }
 }
 
-const BSCSCAN_PREFIXES: { [chainId in ChainId]: string } = {
-  56: '',
-  97: 'testnet.'
+const TOMOSCAN_PREFIXES: { [chainId in ChainId]: string } = {
+  88: '',
+  89: 'testnet.'
 }
 
-export function getBscScanLink(chainId: ChainId, data: string, type: 'transaction' | 'token' | 'address'): string {
-  const prefix = `https://${BSCSCAN_PREFIXES[chainId] || BSCSCAN_PREFIXES[ChainId.MAINNET]}bscscan.com`
+export function getTomoScanLink(chainId: ChainId, data: string, type: 'transaction' | 'token' | 'address'): string {
+  const prefix = `https://scan.${TOMOSCAN_PREFIXES[chainId] || TOMOSCAN_PREFIXES[ChainId.MAINNET]}tomochain.com`
 
   switch (type) {
     case 'transaction': {
